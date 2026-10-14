@@ -1,0 +1,11 @@
+bin/
+.classpath
+.project
+.settings/
+.DS_Store
+dataset/orders.csv
+dataset/order_products__prior.csv
+
+# Large datasets excluded from GitHub
+/dataset/orders.csv
+/dataset/order_products__prior.csv

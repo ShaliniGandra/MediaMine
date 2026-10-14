@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics | MediaMine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+<aside class="sidebar">
+    <div class="brand">
+        <div class="brand-mark">M</div>
+        <div>
+            <h2>MediaMine</h2>
+            <span>Analytics Platform</span>
+        </div>
+    </div>
+
+    <div class="nav-section">
+        <p>WORKSPACE</p>
+
+        <a href="dashboard.html">
+            <span>⌂</span>
+            Dashboard
+        </a>
+
+        <a href="dataset.html">
+            <span>▦</span>
+            Dataset Explorer
+        </a>
+
+        <a href="algorithms.html">
+            <span>◇</span>
+            Algorithm Lab
+        </a>
+
+        <a href="analytics.html" class="active">
+            <span>◒</span>
+            Analytics
+        </a>
+    </div>
+
+    <div class="nav-section system-section">
+        <p>SYSTEM</p>
+
+        <a href="about.html">
+            <span>ⓘ</span>
+            About MediaMine
+        </a>
+    </div>
+
+    <div class="sidebar-bottom">
+        <div class="system-ready">
+            <span class="status-dot"></span>
+            <div>
+                <strong>System Ready</strong>
+                <small>All modules operational</small>
+            </div>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">
+            ↪ Sign out
+        </button>
+    </div>
+</aside>
+
+<main class="dashboard-main">
+
+    <header class="dashboard-header">
+        <div>
+            <span class="eyebrow">PERFORMANCE INTELLIGENCE</span>
+            <h1>Analytics</h1>
+            <p>
+                A factual overview of the dataset, algorithm coverage,
+                and MediaMine platform components.
+            </p>
+        </div>
+
+        <div class="user-badge">
+            <div class="avatar">A</div>
+            <div>
+                <strong>Administrator</strong>
+                <span>MediaMine User</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- TOP METRICS -->
+    <section class="analytics-metrics">
+
+        <div class="analytics-card">
+            <span>PRODUCT RECORDS</span>
+            <strong id="productCount">49,688</strong>
+            <small>Product records in the catalog</small>
+        </div>
+
+        <div class="analytics-card">
+            <span>DEPARTMENTS</span>
+            <strong id="departmentCount">21</strong>
+            <small>Product categories</small>
+        </div>
+
+        <div class="analytics-card">
+            <span>AISLES</span>
+            <strong id="aisleCount">134</strong>
+            <small>Product subcategories</small>
+        </div>
+
+        <div class="analytics-card">
+            <span>ALGORITHM MODULES</span>
+            <strong>06</strong>
+            <small>M1 through M6 implemented</small>
+        </div>
+
+    </section>
+
+    <!-- DATASET + MODULE ANALYSIS -->
+    <section class="analytics-grid">
+
+        <div class="analytics-panel">
+            <div class="panel-title">
+                <div>
+                    <span class="eyebrow">DATASET COMPOSITION</span>
+                    <h2>Department Catalog</h2>
+                </div>
+                <span class="panel-badge" id="departmentBadge">21 CATEGORIES</span>
+            </div>
+
+            <p class="analytics-description">
+                Departments are loaded from the connected Instacart dataset.
+                This view shows the actual category names rather than
+                inventing percentage distributions.
+            </p>
+
+            <div id="departmentList" class="category-list">
+                <div class="analytics-loading">Loading departments...</div>
+            </div>
+
+            <div class="analytics-source-note">
+                <strong>Dataset source:</strong> Instacart Market Basket Analysis.
+                The dataset is used by MediaMine as a user-content interaction
+                and event-style analytics dataset.
+            </div>
+        </div>
+
+        <div class="analytics-panel">
+            <div class="panel-title">
+                <div>
+                    <span class="eyebrow">ALGORITHM COVERAGE</span>
+                    <h2>Module Overview</h2>
+                </div>
+                <span class="panel-badge">M1 — M6</span>
+            </div>
+
+            <div class="module-bars">
+
+                <div class="module-bar">
+                    <div class="module-bar-label">
+                        <span>M1</span>
+                        <strong>String Algorithms</strong>
+                    </div>
+                    <div class="module-progress"><div style="width:100%"></div></div>
+                    <small>KMP · Rabin-Karp · Z-Function · Aho-Corasick</small>
+                </div>
+
+                <div class="module-bar">
+                    <div class="module-bar-label">
+                        <span>M2</span>
+                        <strong>Suffix Structures</strong>
+                    </div>
+                    <div class="module-progress"><div style="width:100%"></div></div>
+                    <small>Suffix Array · LCP/Kasai · Suffix Tree · Automaton</small>
+                </div>
+
+                <div class="module-bar">
+                    <div class="module-bar-label">
+                        <span>M3</span>
+                        <strong>Dynamic Programming</strong>
+                    </div>
+                    <div class="module-progress"><div style="width:100%"></div></div>
+                    <small>Edit Distance · Matrix Chain · Optimal BST · Route DP</small>
+                </div>
+
+                <div class="module-bar">
+                    <div class="module-bar-label">
+                        <span>M4</span>
+                        <strong>Network Flow</strong>
+                    </div>
+                    <div class="module-progress"><div style="width:100%"></div></div>
+                    <small>Max Flow · Min Cut · Bipartite Matching</small>
+                </div>
+
+                <div class="module-bar">
+                    <div class="module-bar-label">
+                        <span>M5</span>
+                        <strong>NP &amp; Approximation</strong>
+                    </div>
+                    <div class="module-progress"><div style="width:100%"></div></div>
+                    <small>3-SAT · CLIQUE · Vertex Cover · Independent Set</small>
+                </div>
+
+                <div class="module-bar">
+                    <div class="module-bar-label">
+                        <span>M6</span>
+                        <strong>Parallel &amp; Randomized</strong>
+                    </div>
+                    <div class="module-progress"><div style="width:100%"></div></div>
+                    <small>Bloom Filter · Randomized Algorithms · Parallel Reduction</small>
+                </div>
+
+            </div>
+
+            <div class="analytics-source-note">
+                All six modules are represented in the Java project and can be
+                opened from the Algorithm Lab.
+            </div>
+        </div>
+
+    </section>
+
+    <!-- EXECUTION OVERVIEW -->
+    <section class="analytics-panel performance-panel">
+
+        <div class="panel-title">
+            <div>
+                <span class="eyebrow">ALGORITHM PERFORMANCE</span>
+                <h2>Execution Overview</h2>
+            </div>
+            <span class="panel-badge">JAVA ENGINE</span>
+        </div>
+
+        <div class="performance-grid">
+
+            <div class="performance-item">
+                <div class="performance-icon">M1</div>
+                <div>
+                    <strong>Pattern Matching</strong>
+                    <span>KMP · Rabin-Karp · Z-Function · Aho-Corasick</span>
+                </div>
+                <b>READY</b>
+            </div>
+
+            <div class="performance-item">
+                <div class="performance-icon">M2</div>
+                <div>
+                    <strong>Suffix Processing</strong>
+                    <span>Suffix Array · LCP/Kasai · Suffix Tree · Automaton</span>
+                </div>
+                <b>READY</b>
+            </div>
+
+            <div class="performance-item">
+                <div class="performance-icon">M3</div>
+                <div>
+                    <strong>Optimization</strong>
+                    <span>Edit Distance · Matrix Chain · Optimal BST · Route DP</span>
+                </div>
+                <b>READY</b>
+            </div>
+
+            <div class="performance-item">
+                <div class="performance-icon">M4</div>
+                <div>
+                    <strong>Network Flow</strong>
+                    <span>Max Flow · Min Cut · Bipartite Matching</span>
+                </div>
+                <b>READY</b>
+            </div>
+
+            <div class="performance-item">
+                <div class="performance-icon">M5</div>
+                <div>
+                    <strong>Complexity</strong>
+                    <span>3-SAT · CLIQUE · Vertex Cover · Reductions</span>
+                </div>
+                <b>READY</b>
+            </div>
+
+            <div class="performance-item">
+                <div class="performance-icon">M6</div>
+                <div>
+                    <strong>Parallel Processing</strong>
+                    <span>Bloom Filter · Parallel Reduce · Randomized Algorithms</span>
+                </div>
+                <b>READY</b>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- DATASET PIPELINE -->
+    <section class="analytics-grid">
+
+        <div class="analytics-panel">
+            <div class="panel-title">
+                <div>
+                    <span class="eyebrow">DATA PIPELINE</span>
+                    <h2>Connected Dataset Files</h2>
+                </div>
+                <span class="panel-badge">CSV</span>
+            </div>
+
+            <div class="pipeline-list">
+                <div class="pipeline-row">
+                    <strong>products.csv</strong>
+                    <span>Product catalog</span>
+                    <b>CONNECTED</b>
+                </div>
+                <div class="pipeline-row">
+                    <strong>orders.csv</strong>
+                    <span>Order/session events</span>
+                    <b>CONNECTED</b>
+                </div>
+                <div class="pipeline-row">
+                    <strong>order_products__prior.csv</strong>
+                    <span>Historical interactions</span>
+                    <b>CONNECTED</b>
+                </div>
+                <div class="pipeline-row">
+                    <strong>order_products__train.csv</strong>
+                    <span>Training interactions</span>
+                    <b>CONNECTED</b>
+                </div>
+                <div class="pipeline-row">
+                    <strong>departments.csv</strong>
+                    <span>Department categories</span>
+                    <b>CONNECTED</b>
+                </div>
+                <div class="pipeline-row">
+                    <strong>aisles.csv</strong>
+                    <span>Product subcategories</span>
+                    <b>CONNECTED</b>
+                </div>
+            </div>
+        </div>
+
+        <div class="analytics-panel">
+            <div class="panel-title">
+                <div>
+                    <span class="eyebrow">PLATFORM MODEL</span>
+                    <h2>Dataset Mapping</h2>
+                </div>
+                <span class="panel-badge">MEDIAMINE</span>
+            </div>
+
+            <div class="mapping-list">
+                <div><span>User</span><strong>Viewer / Customer</strong></div>
+                <div><span>Order</span><strong>Session / Event Group</strong></div>
+                <div><span>Product</span><strong>Media / Content Item</strong></div>
+                <div><span>Department</span><strong>Content Category</strong></div>
+                <div><span>Aisle</span><strong>Subcategory</strong></div>
+                <div><span>Order-Product</span><strong>User-Content Interaction</strong></div>
+            </div>
+
+            <p class="mapping-note">
+                This mapping keeps the MediaMine project architecture while
+                accurately describing what the Instacart dataset contains.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- HEALTH -->
+    <section class="health-section">
+
+        <div>
+            <span class="eyebrow">PLATFORM HEALTH</span>
+            <h2>System Status</h2>
+        </div>
+
+        <div class="health-grid">
+
+            <div class="health-card">
+                <span class="health-dot"></span>
+                <div>
+                    <strong>Dataset Engine</strong>
+                    <small>Operational</small>
+                </div>
+            </div>
+
+            <div class="health-card">
+                <span class="health-dot"></span>
+                <div>
+                    <strong>Algorithm Engine</strong>
+                    <small>Operational</small>
+                </div>
+            </div>
+
+            <div class="health-card">
+                <span class="health-dot"></span>
+                <div>
+                    <strong>Search Engine</strong>
+                    <small>Operational</small>
+                </div>
+            </div>
+
+            <div class="health-card">
+                <span class="health-dot"></span>
+                <div>
+                    <strong>Analytics Engine</strong>
+                    <small>Operational</small>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<script>
+async function loadAnalytics() {
+    try {
+        const [departmentResponse, aisleResponse] = await Promise.all([
+            fetch("http://localhost:8080/api/departments"),
+            fetch("http://localhost:8080/api/aisles")
+        ]);
+
+        if (!departmentResponse.ok || !aisleResponse.ok) {
+            throw new Error("API unavailable");
+        }
+
+        const departments = await departmentResponse.json();
+        const aisles = await aisleResponse.json();
+
+        document.getElementById("departmentCount").textContent =
+            departments.length;
+
+        document.getElementById("aisleCount").textContent =
+            aisles.length;
+
+        document.getElementById("departmentBadge").textContent =
+            departments.length + " CATEGORIES";
+
+        const list = document.getElementById("departmentList");
+        list.innerHTML = "";
+
+        departments.forEach(department => {
+            const item = document.createElement("div");
+            item.className = "category-chip";
+            item.innerHTML =
+                "<span class='category-index'>" +
+                String(department.id).padStart(2, "0") +
+                "</span>" +
+                "<strong>" +
+                escapeHtml(department.name) +
+                "</strong>";
+            list.appendChild(item);
+        });
+
+    } catch (error) {
+        document.getElementById("departmentList").innerHTML =
+            "<div class='analytics-loading'>" +
+            "API not reachable. Showing verified dataset totals." +
+            "</div>";
+    }
+}
+
+function escapeHtml(value) {
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+function logout() {
+    sessionStorage.removeItem("mediaMineLoggedIn");
+    window.location.href = "index.html";
+}
+
+loadAnalytics();
+</script>
+
+</body>
+</html>

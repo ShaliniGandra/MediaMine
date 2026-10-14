@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Lab | MediaMine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="logo">M</div>
+            <div>
+                <h2>MediaMine</h2>
+                <span>Analytics Platform</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <p class="nav-label">WORKSPACE</p>
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="dataset.html" class="nav-item">
+                <span>▦</span>
+                <span>Dataset Explorer</span>
+            </a>
+
+            <a href="algorithms.html" class="nav-item active">
+                <span>◇</span>
+                <span>Algorithm Lab</span>
+            </a>
+
+            <a href="analytics.html" class="nav-item">
+                <span>◒</span>
+                <span>Analytics</span>
+            </a>
+
+            <p class="nav-label">SYSTEM</p>
+
+            <a href="about.html" class="nav-item">
+                <span>ⓘ</span>
+                <span>About MediaMine</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="system-status">
+                <span class="status-dot"></span>
+                <div>
+                    <strong>System Ready</strong>
+                    <small>All modules operational</small>
+                </div>
+            </div>
+
+            <button class="logout-button" id="logoutButton" type="button">
+                ↪ Sign out
+            </button>
+        </div>
+    </aside>
+
+
+    <main class="dashboard-main algorithm-page">
+
+        <header class="dashboard-header">
+            <div>
+                <span class="page-label">COMPUTATIONAL ENGINE</span>
+                <h1>Algorithm Lab</h1>
+                <p>
+                    Explore the six algorithmic modules implemented
+                    in the MediaMine platform.
+                </p>
+            </div>
+
+            <div class="header-user">
+                <div class="user-info">
+                    <strong>Administrator</strong>
+                    <span>MediaMine User</span>
+                </div>
+                <div class="avatar">A</div>
+            </div>
+        </header>
+
+
+        <section class="algorithm-summary">
+
+            <div class="algorithm-summary-card">
+                <span>MODULES</span>
+                <strong>06</strong>
+                <small>Core algorithm modules</small>
+            </div>
+
+            <div class="algorithm-summary-card">
+                <span>ALGORITHMS</span>
+                <strong>25+</strong>
+                <small>Implementations available</small>
+            </div>
+
+            <div class="algorithm-summary-card">
+                <span>DATASET</span>
+                <strong>49,688</strong>
+                <small>Indexed product records</small>
+            </div>
+
+            <div class="algorithm-summary-card">
+                <span>STATUS</span>
+                <strong class="algorithm-ready">READY</strong>
+                <small>Java engine operational</small>
+            </div>
+
+        </section>
+
+
+        <section class="algorithm-module">
+            <div class="module-number">M1</div>
+
+            <div class="module-content">
+                <div class="module-header">
+                    <div>
+                        <span class="module-label">PATTERN MATCHING</span>
+                        <h2>String Algorithms</h2>
+                        <p>
+                            Efficient algorithms for searching patterns
+                            within product and content text.
+                        </p>
+                    </div>
+
+                    <span class="module-status">OPERATIONAL</span>
+                </div>
+
+                <div class="algorithm-list">
+                    <div class="algorithm-item">
+                        <strong>KMP</strong>
+                        <span>Knuth-Morris-Pratt pattern matching</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Rabin-Karp</strong>
+                        <span>Hash-based pattern searching</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Z-Function</strong>
+                        <span>Linear-time pattern matching</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Aho-Corasick</strong>
+                        <span>Multi-pattern string matching</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="algorithm-module">
+            <div class="module-number">M2</div>
+
+            <div class="module-content">
+                <div class="module-header">
+                    <div>
+                        <span class="module-label">TEXT INDEXING</span>
+                        <h2>Suffix Structures</h2>
+                        <p>
+                            Advanced indexing structures for efficient
+                            substring search and document analysis.
+                        </p>
+                    </div>
+
+                    <span class="module-status">OPERATIONAL</span>
+                </div>
+
+                <div class="algorithm-list">
+                    <div class="algorithm-item">
+                        <strong>Suffix Array</strong>
+                        <span>Lexicographically ordered suffix indexing</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>LCP / Kasai</strong>
+                        <span>Longest common prefix computation</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>SA-IS</strong>
+                        <span>Linear-time suffix array construction</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Suffix Tree</strong>
+                        <span>Compressed suffix representation</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Suffix Automaton</strong>
+                        <span>Substring representation and analysis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="algorithm-module">
+            <div class="module-number">M3</div>
+
+            <div class="module-content">
+                <div class="module-header">
+                    <div>
+                        <span class="module-label">OPTIMIZATION</span>
+                        <h2>Dynamic Programming</h2>
+                        <p>
+                            Optimization techniques for similarity,
+                            routing and structured decision problems.
+                        </p>
+                    </div>
+
+                    <span class="module-status">OPERATIONAL</span>
+                </div>
+
+                <div class="algorithm-list">
+                    <div class="algorithm-item">
+                        <strong>Levenshtein</strong>
+                        <span>Edit distance between strings</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Damerau-Levenshtein</strong>
+                        <span>Edit distance with transpositions</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Weighted Edit Distance</strong>
+                        <span>Edit distance with operation costs</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Matrix Chain</strong>
+                        <span>Optimal matrix multiplication ordering</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Optimal BST</strong>
+                        <span>Optimal binary search tree construction</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Bitmask Route DP</strong>
+                        <span>Subset-based route optimization</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="algorithm-module">
+            <div class="module-number">M4</div>
+
+            <div class="module-content">
+                <div class="module-header">
+                    <div>
+                        <span class="module-label">GRAPH THEORY</span>
+                        <h2>Network Flow</h2>
+                        <p>
+                            Flow optimization and graph connectivity
+                            algorithms for network modelling.
+                        </p>
+                    </div>
+
+                    <span class="module-status">OPERATIONAL</span>
+                </div>
+
+                <div class="algorithm-list">
+                    <div class="algorithm-item">
+                        <strong>Ford-Fulkerson</strong>
+                        <span>Maximum flow computation</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Edmonds-Karp</strong>
+                        <span>BFS-based maximum flow</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Dinic</strong>
+                        <span>Level graph maximum flow</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Min-Cut</strong>
+                        <span>Critical network link identification</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Bipartite Matching</strong>
+                        <span>Maximum content-channel assignment</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="algorithm-module">
+            <div class="module-number">M5</div>
+
+            <div class="module-content">
+                <div class="module-header">
+                    <div>
+                        <span class="module-label">COMPUTATIONAL COMPLEXITY</span>
+                        <h2>NP &amp; Approximation</h2>
+                        <p>
+                            Complexity theory, reductions and
+                            approximation algorithms.
+                        </p>
+                    </div>
+
+                    <span class="module-status">OPERATIONAL</span>
+                </div>
+
+                <div class="algorithm-list">
+                    <div class="algorithm-item">
+                        <strong>3-SAT</strong>
+                        <span>Boolean satisfiability problem</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>3-SAT → CLIQUE</strong>
+                        <span>Polynomial-time problem reduction</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Vertex Cover</strong>
+                        <span>2-approximation algorithm</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Independent Set</strong>
+                        <span>Relationship with vertex cover</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="algorithm-module">
+            <div class="module-number">M6</div>
+
+            <div class="module-content">
+                <div class="module-header">
+                    <div>
+                        <span class="module-label">PERFORMANCE</span>
+                        <h2>Parallel &amp; Randomized</h2>
+                        <p>
+                            Probabilistic techniques and parallel
+                            computation for scalable processing.
+                        </p>
+                    </div>
+
+                    <span class="module-status">OPERATIONAL</span>
+                </div>
+
+                <div class="algorithm-list">
+                    <div class="algorithm-item">
+                        <strong>Bloom Filter</strong>
+                        <span>Probabilistic membership testing</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Randomized QuickSort</strong>
+                        <span>Randomized divide-and-conquer sorting</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Reservoir Sampling</strong>
+                        <span>Uniform sampling from streams</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Miller-Rabin</strong>
+                        <span>Probabilistic primality testing</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Parallel Reduction</strong>
+                        <span>Fork-join parallel aggregation</span>
+                    </div>
+                    <div class="algorithm-item">
+                        <strong>Brent's Theorem</strong>
+                        <span>Parallel work-span performance analysis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="algorithm-footer">
+
+            <div>
+                <span class="page-label">JAVA COMPUTATIONAL ENGINE</span>
+                <h2>Algorithms are implemented in MediaMine.</h2>
+                <p>
+                    The Algorithm Lab provides a visual overview of
+                    the algorithms implemented across Modules 1–6.
+                    Execution and benchmark results are produced by
+                    the Java project.
+                </p>
+            </div>
+
+            <div class="engine-status">
+                <span class="status-dot"></span>
+                <strong>Java Engine Operational</strong>
+            </div>
+
+        </section>
+
+
+        <footer class="dashboard-footer">
+            <span>MediaMine — Intelligent Media Analytics Platform</span>
+            <span>Algorithm Lab</span>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+function logout() {
+    sessionStorage.removeItem("mediaMineLoggedIn");
+    window.location.href = "index.html";
+}
+
+const logoutButton = document.getElementById("logoutButton");
+
+if (logoutButton) {
+    logoutButton.addEventListener("click", logout);
+}
+</script>
+
+</body>
+</html>

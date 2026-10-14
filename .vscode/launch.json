@@ -1,0 +1,8 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {"type":"java","name":"MediaMine Main","request":"launch","mainClass":"mediamine.Main"},
+    {"type":"java","name":"MediaMine - Run All","request":"launch","mainClass":"mediamine.Main","args":["all"]},
+    {"type":"java","name":"MediaMine SelfTest","request":"launch","mainClass":"mediamine.SelfTest"}
+  ]
+}

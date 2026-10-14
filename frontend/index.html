@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign in | MediaMine</title>
+
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="login-page">
+
+    <main class="login-shell">
+
+        <section class="login-card">
+
+            <!-- LOGO -->
+            <div class="login-logo">M</div>
+
+            <!-- HEADING -->
+            <div class="login-heading">
+                <h1>Welcome back</h1>
+                <p>Sign in to continue to MediaMine.</p>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm" class="login-form">
+
+                <!-- USERNAME -->
+                <div class="field">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <span class="input-icon">◉</span>
+
+                        <input
+                            id="username"
+                            name="username"
+                            type="text"
+                            placeholder="Enter your username"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="field">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <span class="input-icon">●</span>
+
+                        <input
+                            id="password"
+                            name="password"
+                            type="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OPTIONS -->
+                <div class="login-options">
+
+                    <label class="remember">
+
+                        <input
+                            id="rememberMe"
+                            type="checkbox"
+                        >
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
+
+
+                    <button
+                        type="button"
+                        class="forgot-btn"
+                        id="forgotPassword"
+                    >
+                        Forgot password?
+                    </button>
+
+                </div>
+
+
+                <!-- SIGN IN -->
+                <button
+                    type="submit"
+                    class="login-submit"
+                >
+
+                    <span>
+                        Sign in
+                    </span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- DEMO LOGIN -->
+                <button
+                    type="button"
+                    class="demo-login"
+                    id="demoLogin"
+                >
+                    Use demo access
+                </button>
+
+
+                <!-- MESSAGE -->
+                <p
+                    class="login-message"
+                    id="loginMessage"
+                ></p>
+
+            </form>
+
+
+            <!-- FOOTER -->
+            <div class="login-footer">
+
+                <span class="secure-dot"></span>
+
+                <span>
+                    Secure MediaMine workspace
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const form =
+            document.getElementById("loginForm");
+
+        const username =
+            document.getElementById("username");
+
+        const password =
+            document.getElementById("password");
+
+        const togglePassword =
+            document.getElementById("togglePassword");
+
+        const demoLogin =
+            document.getElementById("demoLogin");
+
+        const forgotPassword =
+            document.getElementById("forgotPassword");
+
+        const message =
+            document.getElementById("loginMessage");
+
+
+        /* ===============================
+           MESSAGE
+        =============================== */
+
+        function showMessage(text, type = "error") {
+
+            message.textContent = text;
+
+            message.className =
+                "login-message " + type;
+
+        }
+
+
+        /* ===============================
+           LOGIN
+        =============================== */
+
+        function login() {
+
+            const user =
+                username.value.trim();
+
+            const pass =
+                password.value;
+
+
+            if (
+                user === "admin" &&
+                pass === "mediamine"
+            ) {
+
+                sessionStorage.setItem(
+                    "mediaMineLoggedIn",
+                    "true"
+                );
+
+                window.location.href =
+                    "dashboard.html";
+
+                return;
+            }
+
+
+            showMessage(
+                "Invalid username or password."
+            );
+
+        }
+
+
+        /* ===============================
+           FORM SUBMIT
+        =============================== */
+
+        form.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                login();
+
+            }
+        );
+
+
+        /* ===============================
+           DEMO LOGIN
+        =============================== */
+
+        demoLogin.addEventListener(
+            "click",
+            function() {
+
+                username.value = "admin";
+
+                password.value = "mediamine";
+
+                login();
+
+            }
+        );
+
+
+        /* ===============================
+           SHOW / HIDE PASSWORD
+        =============================== */
+
+        togglePassword.addEventListener(
+            "click",
+            function() {
+
+                const showing =
+                    password.type === "text";
+
+
+                password.type =
+                    showing
+                        ? "password"
+                        : "text";
+
+
+                togglePassword.textContent =
+                    showing
+                        ? "Show"
+                        : "Hide";
+
+            }
+        );
+
+
+        /* ===============================
+           FORGOT PASSWORD
+        =============================== */
+
+        forgotPassword.addEventListener(
+            "click",
+            function() {
+
+                showMessage(
+                    "For the demo, use admin / mediamine.",
+                    "info"
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

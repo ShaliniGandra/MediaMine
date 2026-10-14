@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Explorer | MediaMine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="logo">M</div>
+            <div>
+                <h2>MediaMine</h2>
+                <span>Analytics Platform</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <p class="nav-label">WORKSPACE</p>
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="dataset.html" class="nav-item active">
+                <span>▦</span>
+                <span>Dataset Explorer</span>
+            </a>
+
+            <a href="algorithms.html" class="nav-item">
+                <span>◇</span>
+                <span>Algorithm Lab</span>
+            </a>
+
+            <a href="analytics.html" class="nav-item">
+                <span>◒</span>
+                <span>Analytics</span>
+            </a>
+
+            <p class="nav-label">SYSTEM</p>
+
+            <a href="about.html" class="nav-item">
+                <span>ⓘ</span>
+                <span>About MediaMine</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="system-status">
+                <span class="status-dot"></span>
+                <div>
+                    <strong>System Ready</strong>
+                    <small>All modules operational</small>
+                </div>
+            </div>
+
+            <button class="logout-button" id="logoutButton" type="button">
+                ↪ Sign out
+            </button>
+        </div>
+    </aside>
+
+
+    <main class="dashboard-main dataset-page">
+
+        <header class="dashboard-header">
+            <div>
+                <span class="page-label">DATA MANAGEMENT</span>
+                <h1>Dataset Explorer</h1>
+                <p>
+                    Explore products, departments and categories from the
+                    Instacart Market Basket dataset.
+                </p>
+            </div>
+
+            <div class="header-user">
+                <div class="user-info">
+                    <strong>Administrator</strong>
+                    <span>MediaMine User</span>
+                </div>
+                <div class="avatar">A</div>
+            </div>
+        </header>
+
+
+        <section class="dataset-overview">
+
+            <div class="overview-card">
+                <div class="overview-icon">◈</div>
+                <div>
+                    <span>PRODUCT RECORDS</span>
+                    <strong>49,688</strong>
+                    <small>Indexed products</small>
+                </div>
+            </div>
+
+            <div class="overview-card">
+                <div class="overview-icon">▦</div>
+                <div>
+                    <span>DEPARTMENTS</span>
+                    <strong>21</strong>
+                    <small>Dataset categories</small>
+                </div>
+            </div>
+
+            <div class="overview-card">
+                <div class="overview-icon">⌁</div>
+                <div>
+                    <span>AISLES</span>
+                    <strong>134</strong>
+                    <small>Dataset subcategories</small>
+                </div>
+            </div>
+
+            <div class="overview-card">
+                <div class="overview-icon">✓</div>
+                <div>
+                    <span>DATA STATUS</span>
+                    <strong class="ready-text">READY</strong>
+                    <small>CSV files loaded</small>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="dataset-info-panel">
+
+            <div class="dataset-info-main">
+                <span class="page-label">SOURCE DATASET</span>
+
+                <h2>Instacart Market Basket Analysis</h2>
+
+                <p>
+                    MediaMine uses the Instacart dataset as a large-scale
+                    user-content interaction dataset for demonstrating
+                    searching, indexing, optimization, graph algorithms,
+                    approximation and performance techniques.
+                </p>
+            </div>
+
+            <div class="dataset-role">
+                <span>DATASET ROLE</span>
+                <strong>User → Content Interaction Analytics</strong>
+                <small>
+                    Products represent content items, departments represent
+                    categories and orders represent interaction sessions.
+                </small>
+            </div>
+
+        </section>
+
+
+        <section class="explorer-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <span class="page-label">EXPLORER</span>
+                    <h2>Product Explorer</h2>
+                    <p>Search the indexed product catalogue.</p>
+                </div>
+
+                <div class="result-count">
+                    <strong id="resultCount">0</strong>
+                    <span>results shown</span>
+                </div>
+            </div>
+
+
+            <div class="search-area">
+
+                <div class="search-box">
+                    <span>⌕</span>
+                    <input
+                        type="text"
+                        id="productSearch"
+                        placeholder="Search products..."
+                        autocomplete="off"
+                    >
+                </div>
+
+                <select id="departmentFilter">
+                    <option value="all">All Departments</option>
+                </select>
+
+                <button
+                    class="clear-filter"
+                    id="clearFilters"
+                    type="button"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table class="product-table">
+
+                    <thead>
+                        <tr>
+                            <th>PRODUCT ID</th>
+                            <th>PRODUCT NAME</th>
+                            <th>DEPARTMENT</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="productTable">
+                        <tr>
+                            <td colspan="4" class="table-message">
+                                Loading products...
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section class="dataset-files">
+
+            <div class="section-heading">
+                <div>
+                    <span class="page-label">DATA SOURCES</span>
+                    <h2>Dataset Files</h2>
+                </div>
+            </div>
+
+            <div class="file-grid">
+
+                <div class="file-card">
+                    <div class="file-icon">CSV</div>
+                    <div>
+                        <strong>products.csv</strong>
+                        <span>49,688 product records</span>
+                    </div>
+                    <b>READY</b>
+                </div>
+
+                <div class="file-card">
+                    <div class="file-icon">CSV</div>
+                    <div>
+                        <strong>departments.csv</strong>
+                        <span>21 department records</span>
+                    </div>
+                    <b>READY</b>
+                </div>
+
+                <div class="file-card">
+                    <div class="file-icon">CSV</div>
+                    <div>
+                        <strong>aisles.csv</strong>
+                        <span>134 aisle records</span>
+                    </div>
+                    <b>READY</b>
+                </div>
+
+                <div class="file-card">
+                    <div class="file-icon">CSV</div>
+                    <div>
+                        <strong>orders.csv</strong>
+                        <span>User interaction sessions</span>
+                    </div>
+                    <b>READY</b>
+                </div>
+
+                <div class="file-card">
+                    <div class="file-icon">CSV</div>
+                    <div>
+                        <strong>order_products__prior.csv</strong>
+                        <span>Historical interactions</span>
+                    </div>
+                    <b>READY</b>
+                </div>
+
+                <div class="file-card">
+                    <div class="file-icon">CSV</div>
+                    <div>
+                        <strong>order_products__train.csv</strong>
+                        <span>Training interactions</span>
+                    </div>
+                    <b>READY</b>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer class="dashboard-footer">
+            <span>MediaMine — Intelligent Media Analytics Platform</span>
+            <span>Dataset Explorer</span>
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+<script>
+const API_BASE = "http://localhost:8080";
+
+const searchInput = document.getElementById("productSearch");
+const departmentFilter = document.getElementById("departmentFilter");
+const clearButton = document.getElementById("clearFilters");
+const productTable = document.getElementById("productTable");
+const resultCount = document.getElementById("resultCount");
+const logoutButton = document.getElementById("logoutButton");
+
+let departmentMap = {};
+let currentProducts = [];
+let searchTimer;
+
+
+function formatDepartmentName(name) {
+    return String(name)
+        .split(" ")
+        .map(word => {
+            if (!word) return word;
+            return word.charAt(0).toUpperCase() + word.slice(1);
+        })
+        .join(" ");
+}
+
+
+function escapeHTML(value) {
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+async function loadDepartments() {
+    try {
+        const response = await fetch(API_BASE + "/api/departments");
+
+        if (!response.ok) {
+            throw new Error("Unable to load departments");
+        }
+
+        const departments = await response.json();
+
+        departmentMap = {};
+
+        departmentFilter.innerHTML =
+            '<option value="all">All Departments</option>';
+
+        departments.forEach(department => {
+            const id = String(department.id);
+
+            departmentMap[id] = department.name;
+
+            const option = document.createElement("option");
+
+            option.value = id;
+            option.textContent =
+                formatDepartmentName(department.name);
+
+            departmentFilter.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error("Department API Error:", error);
+
+        departmentFilter.innerHTML =
+            '<option value="all">All Departments</option>';
+    }
+}
+
+
+async function loadProducts() {
+
+    productTable.innerHTML = `
+        <tr>
+            <td colspan="4" class="table-message">
+                Loading products...
+            </td>
+        </tr>
+    `;
+
+    try {
+
+        const searchText =
+            searchInput.value.trim();
+
+        let url = API_BASE + "/api/products";
+
+        if (searchText !== "") {
+            url += "?q=" +
+                encodeURIComponent(searchText);
+        }
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Product API request failed");
+        }
+
+        currentProducts = await response.json();
+
+        displayProducts(currentProducts);
+
+    } catch (error) {
+
+        console.error(
+            "MediaMine Product API Error:",
+            error
+        );
+
+        productTable.innerHTML = `
+            <tr>
+                <td colspan="4" class="table-message error-message">
+                    <strong>Unable to connect to MediaMine API.</strong>
+                    <span>Make sure the Java server is running on port 8080.</span>
+                </td>
+            </tr>
+        `;
+
+        resultCount.textContent = "0";
+    }
+}
+
+
+function displayProducts(products) {
+
+    productTable.innerHTML = "";
+
+    const selectedDepartment =
+        departmentFilter.value;
+
+    let visibleProducts = 0;
+
+    products.forEach(product => {
+
+        const productId =
+            product.product_id || "";
+
+        const productName =
+            product.product_name || "";
+
+        const departmentId =
+            String(product.department_id || "");
+
+        const departmentName =
+            departmentMap[departmentId] || "Unknown";
+
+        const matchesDepartment =
+            selectedDepartment === "all" ||
+            departmentId === selectedDepartment;
+
+        if (!matchesDepartment) {
+            return;
+        }
+
+        const row =
+            document.createElement("tr");
+
+        row.innerHTML = `
+            <td class="product-id">
+                ${escapeHTML(productId)}
+            </td>
+
+            <td class="product-name">
+                ${escapeHTML(productName)}
+            </td>
+
+            <td>
+                ${escapeHTML(
+                    formatDepartmentName(departmentName)
+                )}
+            </td>
+
+            <td>
+                <span class="table-status">
+                    Indexed
+                </span>
+            </td>
+        `;
+
+        productTable.appendChild(row);
+
+        visibleProducts++;
+    });
+
+    resultCount.textContent =
+        visibleProducts;
+
+    if (visibleProducts === 0) {
+        productTable.innerHTML = `
+            <tr>
+                <td colspan="4" class="table-message">
+                    No products found.
+                </td>
+            </tr>
+        `;
+    }
+}
+
+
+searchInput.addEventListener("input", () => {
+
+    clearTimeout(searchTimer);
+
+    searchTimer = setTimeout(() => {
+        loadProducts();
+    }, 250);
+
+});
+
+
+departmentFilter.addEventListener("change", () => {
+    displayProducts(currentProducts);
+});
+
+
+clearButton.addEventListener("click", () => {
+
+    searchInput.value = "";
+    departmentFilter.value = "all";
+
+    loadProducts();
+
+    searchInput.focus();
+});
+
+
+function logout() {
+    sessionStorage.removeItem("mediaMineLoggedIn");
+    window.location.href = "index.html";
+}
+
+if (logoutButton) {
+    logoutButton.addEventListener("click", logout);
+}
+
+
+async function initializeDatasetExplorer() {
+    await loadDepartments();
+    await loadProducts();
+}
+
+
+initializeDatasetExplorer();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediaMine | Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="logo">M</div>
+
+            <div>
+                <h2>MediaMine</h2>
+                <span>Analytics Platform</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">WORKSPACE</p>
+
+            <a href="dashboard.html" class="nav-item active">
+                <span>⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="dataset.html" class="nav-item">
+                <span>▦</span>
+                <span>Dataset Explorer</span>
+            </a>
+
+            <a href="algorithms.html" class="nav-item">
+                <span>◇</span>
+                <span>Algorithm Lab</span>
+            </a>
+
+            <a href="analytics.html" class="nav-item">
+                <span>◒</span>
+                <span>Analytics</span>
+            </a>
+
+
+            <p class="nav-label">SYSTEM</p>
+
+            <a href="about.html" class="nav-item">
+                <span>ⓘ</span>
+                <span>About MediaMine</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Ready</strong>
+                    <small>All modules operational</small>
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+                type="button"
+            >
+                ↪ Sign out
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+        <!-- HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <span class="page-label">
+                    MEDIA ANALYTICS
+                </span>
+
+                <h1>Dashboard</h1>
+
+                <p>
+                    Monitor your dataset, algorithms and analytics
+                    from one workspace.
+                </p>
+
+            </div>
+
+
+            <div class="header-user">
+
+                <div class="user-info">
+
+                    <strong>Administrator</strong>
+
+                    <span>MediaMine User</span>
+
+                </div>
+
+                <div class="avatar">
+                    A
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             STATISTICS
+             ================================================= -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+
+                    <span>MEDIA ITEMS</span>
+
+                    <div class="stat-icon">
+                        ◈
+                    </div>
+
+                </div>
+
+                <strong class="stat-number">
+                    49,688
+                </strong>
+
+                <p>
+                    Indexed content items
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+
+                    <span>ALGORITHM MODULES</span>
+
+                    <div class="stat-icon">
+                        ◇
+                    </div>
+
+                </div>
+
+                <strong class="stat-number">
+                    06
+                </strong>
+
+                <p>
+                    Modules implemented
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+
+                    <span>DEPARTMENTS</span>
+
+                    <div class="stat-icon">
+                        ▦
+                    </div>
+
+                </div>
+
+                <strong class="stat-number">
+                    21
+                </strong>
+
+                <p>
+                    Dataset categories
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+
+                    <span>AISLES</span>
+
+                    <div class="stat-icon">
+                        ⌁
+                    </div>
+
+                </div>
+
+                <strong class="stat-number">
+                    134
+                </strong>
+
+                <p>
+                    Dataset subcategories
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WELCOME PANEL
+             ================================================= -->
+
+        <section class="welcome-panel">
+
+            <div class="welcome-content">
+
+                <span class="page-label">
+                    INTELLIGENT ANALYTICS
+                </span>
+
+                <h2>
+                    Explore the intelligence
+                    behind your data.
+                </h2>
+
+                <p>
+                    MediaMine combines advanced algorithms,
+                    large-scale dataset processing and
+                    performance analytics into one platform.
+                </p>
+
+                <a
+                    href="algorithms.html"
+                    class="primary-action"
+                >
+                    <span>Explore Algorithm Lab</span>
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <div class="welcome-visual">
+
+                <div class="visual-circle circle-one"></div>
+
+                <div class="visual-circle circle-two"></div>
+
+
+                <div class="visual-core">
+                    M
+                </div>
+
+
+                <div class="visual-node node-one">
+                    M1
+                </div>
+
+                <div class="visual-node node-two">
+                    M2
+                </div>
+
+                <div class="visual-node node-three">
+                    M3
+                </div>
+
+                <div class="visual-node node-four">
+                    M4
+                </div>
+
+                <div class="visual-node node-five">
+                    M5
+                </div>
+
+                <div class="visual-node node-six">
+                    M6
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MODULES
+             ================================================= -->
+
+        <section class="modules-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="page-label">
+                        ALGORITHM SUITE
+                    </span>
+
+                    <h2>
+                        Six intelligent modules
+                    </h2>
+
+                </div>
+
+                <a href="algorithms.html">
+                    View all →
+                </a>
+
+            </div>
+
+
+            <div class="module-grid">
+
+
+                <!-- M1 -->
+
+                <div class="module-card">
+
+                    <div class="module-number">
+                        M1
+                    </div>
+
+                    <h3>
+                        String Algorithms
+                    </h3>
+
+                    <p>
+                        KMP, Rabin-Karp, Z-Function and
+                        Aho-Corasick pattern matching.
+                    </p>
+
+                    <span class="module-tag">
+                        SEARCH
+                    </span>
+
+                </div>
+
+
+                <!-- M2 -->
+
+                <div class="module-card">
+
+                    <div class="module-number">
+                        M2
+                    </div>
+
+                    <h3>
+                        Suffix Structures
+                    </h3>
+
+                    <p>
+                        Suffix arrays, LCP, suffix trees
+                        and suffix automata.
+                    </p>
+
+                    <span class="module-tag">
+                        TEXT INDEXING
+                    </span>
+
+                </div>
+
+
+                <!-- M3 -->
+
+                <div class="module-card">
+
+                    <div class="module-number">
+                        M3
+                    </div>
+
+                    <h3>
+                        Dynamic Programming
+                    </h3>
+
+                    <p>
+                        Edit distance, route optimization,
+                        matrix chains and optimal BST.
+                    </p>
+
+                    <span class="module-tag">
+                        OPTIMIZATION
+                    </span>
+
+                </div>
+
+
+                <!-- M4 -->
+
+                <div class="module-card">
+
+                    <div class="module-number">
+                        M4
+                    </div>
+
+                    <h3>
+                        Network Flow
+                    </h3>
+
+                    <p>
+                        Ford-Fulkerson, Edmonds-Karp,
+                        Dinic, min-cut and matching.
+                    </p>
+
+                    <span class="module-tag">
+                        GRAPH THEORY
+                    </span>
+
+                </div>
+
+
+                <!-- M5 -->
+
+                <div class="module-card">
+
+                    <div class="module-number">
+                        M5
+                    </div>
+
+                    <h3>
+                        NP &amp; Approximation
+                    </h3>
+
+                    <p>
+                        3-SAT, CLIQUE reductions and
+                        Vertex Cover approximation.
+                    </p>
+
+                    <span class="module-tag">
+                        COMPLEXITY
+                    </span>
+
+                </div>
+
+
+                <!-- M6 -->
+
+                <div class="module-card">
+
+                    <div class="module-number">
+                        M6
+                    </div>
+
+                    <h3>
+                        Parallel &amp; Randomized
+                    </h3>
+
+                    <p>
+                        Bloom filters, randomized algorithms,
+                        parallel reduction and Brent's theorem.
+                    </p>
+
+                    <span class="module-tag">
+                        PERFORMANCE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             BOTTOM INFORMATION
+             ================================================= -->
+
+        <section class="bottom-grid">
+
+
+            <!-- DATASET -->
+
+            <div class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="page-label">
+                            DATASET
+                        </span>
+
+                        <h3>
+                            Instacart Market Basket
+                        </h3>
+
+                    </div>
+
+                    <span class="ready-badge">
+                        READY
+                    </span>
+
+                </div>
+
+
+                <div class="dataset-row">
+
+                    <div>
+                        <strong>49,688</strong>
+                        <span>Products</span>
+                    </div>
+
+                    <div>
+                        <strong>21</strong>
+                        <span>Departments</span>
+                    </div>
+
+                    <div>
+                        <strong>134</strong>
+                        <span>Aisles</span>
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="dataset.html"
+                    class="text-link"
+                >
+                    Explore dataset →
+                </a>
+
+            </div>
+
+
+            <!-- SYSTEM STATUS -->
+
+            <div class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="page-label">
+                            PLATFORM
+                        </span>
+
+                        <h3>
+                            System Status
+                        </h3>
+
+                    </div>
+
+                    <span class="online">
+                        ONLINE
+                    </span>
+
+                </div>
+
+
+                <div class="status-list">
+
+                    <div>
+                        <span>Dataset Engine</span>
+                        <strong>Operational</strong>
+                    </div>
+
+                    <div>
+                        <span>Search Algorithms</span>
+                        <strong>Operational</strong>
+                    </div>
+
+                    <div>
+                        <span>Analytics Engine</span>
+                        <strong>Operational</strong>
+                    </div>
+
+                    <div>
+                        <span>Java API Server</span>
+                        <strong>Ready</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                MediaMine — Intelligent Media Analytics Platform
+            </span>
+
+            <span>
+                M1–M6 Algorithms
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- JavaScript -->
+
+<script src="script.js"></script>
+
+</body>
+</html>

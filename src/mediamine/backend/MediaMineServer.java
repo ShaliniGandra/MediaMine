@@ -1,0 +1,462 @@
+package mediamine.backend;
+
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpServer;
+
+import mediamine.data.DatasetManager;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.net.URI;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+
+public class MediaMineServer {
+
+    private static final int PORT = 8080;
+
+    private static final DatasetManager datasetManager =
+            new DatasetManager("dataset");
+
+    public static void main(String[] args) throws Exception {
+
+        HttpServer server = HttpServer.create(
+                new InetSocketAddress(PORT),
+                0
+        );
+
+        server.createContext(
+                "/api/status",
+                MediaMineServer::handleStatus
+        );
+
+        server.createContext(
+                "/api/products",
+                MediaMineServer::handleProducts
+        );
+
+        server.createContext(
+                "/api/departments",
+                MediaMineServer::handleDepartments
+        );
+
+        server.createContext(
+                "/api/aisles",
+                MediaMineServer::handleAisles
+        );
+
+        server.setExecutor(null);
+
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println("       MEDIAMINE API SERVER");
+        System.out.println("======================================");
+        System.out.println("Server running on:");
+        System.out.println("http://localhost:" + PORT);
+        System.out.println();
+        System.out.println("Available endpoints:");
+        System.out.println("/api/status");
+        System.out.println("/api/products");
+        System.out.println("/api/departments");
+        System.out.println("/api/aisles");
+        System.out.println("======================================");
+
+        server.start();
+    }
+
+
+    // ================= STATUS =================
+
+    private static void handleStatus(
+            HttpExchange exchange
+    ) throws IOException {
+
+        if (!exchange.getRequestMethod()
+                .equalsIgnoreCase("GET")) {
+
+            sendJson(
+                    exchange,
+                    405,
+                    "{\"error\":\"Method not allowed\"}"
+            );
+
+            return;
+        }
+
+        String json =
+                "{"
+                + "\"status\":\"online\","
+                + "\"platform\":\"MediaMine\","
+                + "\"dataset\":\"Instacart Market Basket Analysis\","
+                + "\"modules\":6"
+                + "}";
+
+        sendJson(exchange, 200, json);
+    }
+
+
+    // ================= PRODUCTS =================
+
+    private static void handleProducts(
+            HttpExchange exchange
+    ) throws IOException {
+
+        if (!exchange.getRequestMethod()
+                .equalsIgnoreCase("GET")) {
+
+            sendJson(
+                    exchange,
+                    405,
+                    "{\"error\":\"Method not allowed\"}"
+            );
+
+            return;
+        }
+
+        try {
+
+            List<String[]> rows =
+                    datasetManager.loadProducts();
+
+            String query =
+                    getQueryParameter(
+                            exchange.getRequestURI(),
+                            "q"
+                    );
+
+            StringBuilder json =
+                    new StringBuilder();
+
+            json.append("[");
+
+            boolean first = true;
+
+            for (int i = 1; i < rows.size(); i++) {
+
+                String[] row = rows.get(i);
+
+                if (row.length < 4) {
+                    continue;
+                }
+
+                String productId = row[0];
+                String productName = row[1];
+                String aisleId = row[2];
+                String departmentId = row[3];
+
+                if (query != null &&
+                        !query.isBlank() &&
+                        !productName
+                                .toLowerCase()
+                                .contains(query.toLowerCase())) {
+
+                    continue;
+                }
+
+                if (!first) {
+                    json.append(",");
+                }
+
+                json.append("{");
+
+                json.append("\"product_id\":\"")
+                        .append(escapeJson(productId))
+                        .append("\",");
+
+                json.append("\"product_name\":\"")
+                        .append(escapeJson(productName))
+                        .append("\",");
+
+                json.append("\"aisle_id\":\"")
+                        .append(escapeJson(aisleId))
+                        .append("\",");
+
+                json.append("\"department_id\":\"")
+                        .append(escapeJson(departmentId))
+                        .append("\"");
+
+                json.append("}");
+
+                first = false;
+
+                /*
+                 * Without a search query, return the first
+                 * 100 products so the browser isn't overloaded.
+                 */
+                if (query == null && i >= 100) {
+                    break;
+                }
+            }
+
+            json.append("]");
+
+            sendJson(
+                    exchange,
+                    200,
+                    json.toString()
+            );
+
+        } catch (Exception e) {
+
+            sendJson(
+                    exchange,
+                    500,
+                    "{\"error\":\""
+                    + escapeJson(e.getMessage())
+                    + "\"}"
+            );
+        }
+    }
+
+
+    // ================= DEPARTMENTS =================
+
+    private static void handleDepartments(
+            HttpExchange exchange
+    ) throws IOException {
+
+        if (!exchange.getRequestMethod()
+                .equalsIgnoreCase("GET")) {
+
+            sendJson(
+                    exchange,
+                    405,
+                    "{\"error\":\"Method not allowed\"}"
+            );
+
+            return;
+        }
+
+        try {
+
+            List<String[]> rows =
+                    datasetManager.loadDepartments();
+
+            StringBuilder json =
+                    new StringBuilder();
+
+            json.append("[");
+
+            boolean first = true;
+
+            for (int i = 1; i < rows.size(); i++) {
+
+                String[] row = rows.get(i);
+
+                if (row.length < 2) {
+                    continue;
+                }
+
+                if (!first) {
+                    json.append(",");
+                }
+
+                json.append("{");
+
+                json.append("\"id\":\"")
+                        .append(escapeJson(row[0]))
+                        .append("\",");
+
+                json.append("\"name\":\"")
+                        .append(escapeJson(row[1]))
+                        .append("\"");
+
+                json.append("}");
+
+                first = false;
+            }
+
+            json.append("]");
+
+            sendJson(
+                    exchange,
+                    200,
+                    json.toString()
+            );
+
+        } catch (Exception e) {
+
+            sendJson(
+                    exchange,
+                    500,
+                    "{\"error\":\""
+                    + escapeJson(e.getMessage())
+                    + "\"}"
+            );
+        }
+    }
+
+
+    // ================= AISLES =================
+
+    private static void handleAisles(
+            HttpExchange exchange
+    ) throws IOException {
+
+        if (!exchange.getRequestMethod()
+                .equalsIgnoreCase("GET")) {
+
+            sendJson(
+                    exchange,
+                    405,
+                    "{\"error\":\"Method not allowed\"}"
+            );
+
+            return;
+        }
+
+        try {
+
+            List<String[]> rows =
+                    datasetManager.loadAisles();
+
+            StringBuilder json =
+                    new StringBuilder();
+
+            json.append("[");
+
+            boolean first = true;
+
+            for (int i = 1; i < rows.size(); i++) {
+
+                String[] row = rows.get(i);
+
+                if (row.length < 2) {
+                    continue;
+                }
+
+                if (!first) {
+                    json.append(",");
+                }
+
+                json.append("{");
+
+                json.append("\"id\":\"")
+                        .append(escapeJson(row[0]))
+                        .append("\",");
+
+                json.append("\"name\":\"")
+                        .append(escapeJson(row[1]))
+                        .append("\"");
+
+                json.append("}");
+
+                first = false;
+            }
+
+            json.append("]");
+
+            sendJson(
+                    exchange,
+                    200,
+                    json.toString()
+            );
+
+        } catch (Exception e) {
+
+            sendJson(
+                    exchange,
+                    500,
+                    "{\"error\":\""
+                    + escapeJson(e.getMessage())
+                    + "\"}"
+            );
+        }
+    }
+
+
+    // ================= QUERY PARAMETER =================
+
+    private static String getQueryParameter(
+            URI uri,
+            String parameter
+    ) {
+
+        String query = uri.getRawQuery();
+
+        if (query == null) {
+            return null;
+        }
+
+        for (String pair : query.split("&")) {
+
+            String[] parts =
+                    pair.split("=", 2);
+
+            if (parts.length == 2 &&
+                    parts[0].equals(parameter)) {
+
+                try {
+
+                    return URLDecoder.decode(
+                            parts[1],
+                            StandardCharsets.UTF_8
+                    );
+
+                } catch (Exception ignored) {
+
+                    return parts[1];
+                }
+            }
+        }
+
+        return null;
+    }
+
+
+    // ================= JSON ESCAPING =================
+
+    private static String escapeJson(
+            String value
+    ) {
+
+        if (value == null) {
+            return "";
+        }
+
+        return value
+                .replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n")
+                .replace("\r", "\\r")
+                .replace("\t", "\\t");
+    }
+
+
+    // ================= RESPONSE =================
+
+    private static void sendJson(
+            HttpExchange exchange,
+            int statusCode,
+            String response
+    ) throws IOException {
+
+        exchange.getResponseHeaders().set(
+                "Content-Type",
+                "application/json; charset=UTF-8"
+        );
+
+        exchange.getResponseHeaders().set(
+                "Access-Control-Allow-Origin",
+                "*"
+        );
+
+        byte[] data =
+                response.getBytes(
+                        StandardCharsets.UTF_8
+                );
+
+        exchange.sendResponseHeaders(
+                statusCode,
+                data.length
+        );
+
+        try (OutputStream output =
+                     exchange.getResponseBody()) {
+
+            output.write(data);
+        }
+    }
+}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About MediaMine | MediaMine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+<aside class="sidebar">
+    <div class="brand">
+        <div class="brand-mark">M</div>
+        <div>
+            <h2>MediaMine</h2>
+            <span>Analytics Platform</span>
+        </div>
+    </div>
+
+    <div class="nav-section">
+        <p>WORKSPACE</p>
+        <a href="dashboard.html"><span>⌂</span>Dashboard</a>
+        <a href="dataset.html"><span>▦</span>Dataset Explorer</a>
+        <a href="algorithms.html"><span>◇</span>Algorithm Lab</a>
+        <a href="analytics.html"><span>◒</span>Analytics</a>
+    </div>
+
+    <div class="nav-section system-section">
+        <p>SYSTEM</p>
+        <a href="about.html" class="active"><span>ⓘ</span>About MediaMine</a>
+    </div>
+
+    <div class="sidebar-bottom">
+        <div class="system-ready">
+            <span class="status-dot"></span>
+            <div>
+                <strong>System Ready</strong>
+                <small>All modules operational</small>
+            </div>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">↪ Sign out</button>
+    </div>
+</aside>
+
+<main class="dashboard-main">
+
+    <header class="dashboard-header">
+        <div>
+            <span class="eyebrow">PLATFORM INFORMATION</span>
+            <h1>About MediaMine</h1>
+            <p>
+                An intelligent analytics platform built around algorithms,
+                dataset processing and computational analysis.
+            </p>
+        </div>
+
+        <div class="user-badge">
+            <div class="avatar">A</div>
+            <div>
+                <strong>Administrator</strong>
+                <span>MediaMine User</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <div class="about-logo">M</div>
+        <div>
+            <span class="eyebrow">MEDIAMINE PLATFORM</span>
+            <h2>Intelligent Media Analytics Platform</h2>
+            <p>
+                MediaMine is a Java-based computational analytics platform
+                that demonstrates advanced data structures, algorithms and
+                dataset processing through a unified workspace.
+            </p>
+        </div>
+    </section>
+
+    <section class="about-grid">
+
+        <div class="about-panel">
+            <span class="eyebrow">PROJECT OBJECTIVE</span>
+            <h2>What is MediaMine?</h2>
+
+            <p>
+                MediaMine was designed as an integrated environment for
+                applying algorithmic techniques to a large interaction dataset.
+            </p>
+
+            <p>
+                Instead of treating algorithms as isolated programs, the
+                platform organizes them into six computational modules and
+                presents their role through a common analytics interface.
+            </p>
+
+            <div class="about-highlight">
+                <strong>Core idea</strong>
+                <span>
+                    Connect dataset processing, DSA implementations and a
+                    professional web interface in one project.
+                </span>
+            </div>
+        </div>
+
+        <div class="about-panel">
+            <span class="eyebrow">DATASET</span>
+            <h2>Instacart Market Basket Analysis</h2>
+
+            <p>
+                The project uses the Instacart Market Basket Analysis dataset
+                from Kaggle as its underlying transactional interaction data.
+            </p>
+
+            <div class="about-stat-row">
+                <div><strong>49,688</strong><span>Products</span></div>
+                <div><strong>21</strong><span>Departments</span></div>
+                <div><strong>134</strong><span>Aisles</span></div>
+            </div>
+
+            <small class="about-note">
+                Counts represent data rows after excluding CSV header rows.
+            </small>
+        </div>
+
+    </section>
+
+    <section class="about-panel mapping-panel">
+        <span class="eyebrow">DATA MODEL</span>
+        <h2>How the dataset is represented</h2>
+
+        <p>
+            The Instacart dataset is not a media or news dataset. For MediaMine,
+            its transactional records are represented through a content-
+            interaction abstraction so the algorithm modules can operate on a
+            consistent model.
+        </p>
+
+        <div class="mapping-grid">
+            <div class="mapping-item">
+                <strong>User</strong>
+                <span>Viewer / interaction source</span>
+            </div>
+            <div class="mapping-arrow">→</div>
+            <div class="mapping-item">
+                <strong>Order</strong>
+                <span>Interaction session</span>
+            </div>
+            <div class="mapping-arrow">→</div>
+            <div class="mapping-item">
+                <strong>Product</strong>
+                <span>Content / media item</span>
+            </div>
+            <div class="mapping-arrow">→</div>
+            <div class="mapping-item">
+                <strong>Department</strong>
+                <span>Content category</span>
+            </div>
+        </div>
+
+        <div class="mapping-secondary">
+            <div><strong>Aisle</strong><span>Product subcategory</span></div>
+            <div><strong>Order-Product</strong><span>User-content interaction</span></div>
+            <div><strong>Reordered</strong><span>Repeat interaction indicator</span></div>
+        </div>
+    </section>
+
+    <section class="about-panel">
+        <span class="eyebrow">TECHNOLOGY STACK</span>
+        <h2>Platform Architecture</h2>
+
+        <div class="technology-grid">
+            <div class="technology-card">
+                <div class="technology-icon">JAVA</div>
+                <strong>Java</strong>
+                <span>Core algorithm implementation</span>
+            </div>
+            <div class="technology-card">
+                <div class="technology-icon">CSV</div>
+                <strong>CSV Dataset</strong>
+                <span>Dataset storage and processing</span>
+            </div>
+            <div class="technology-card">
+                <div class="technology-icon">DSA</div>
+                <strong>Algorithms</strong>
+                <span>Six computational modules</span>
+            </div>
+            <div class="technology-card">
+                <div class="technology-icon">WEB</div>
+                <strong>Frontend</strong>
+                <span>HTML, CSS and JavaScript</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-panel">
+        <span class="eyebrow">COMPUTATIONAL ARCHITECTURE</span>
+        <h2>Six Algorithm Modules</h2>
+
+        <div class="about-module-grid">
+            <div class="about-module-card">
+                <span>M1</span>
+                <div><strong>String Algorithms</strong><small>Pattern matching and text searching</small></div>
+            </div>
+            <div class="about-module-card">
+                <span>M2</span>
+                <div><strong>Suffix Structures</strong><small>Advanced text indexing</small></div>
+            </div>
+            <div class="about-module-card">
+                <span>M3</span>
+                <div><strong>Dynamic Programming</strong><small>Optimization and similarity</small></div>
+            </div>
+            <div class="about-module-card">
+                <span>M4</span>
+                <div><strong>Network Flow</strong><small>Flow, cuts and matching</small></div>
+            </div>
+            <div class="about-module-card">
+                <span>M5</span>
+                <div><strong>NP &amp; Approximation</strong><small>Complexity and reductions</small></div>
+            </div>
+            <div class="about-module-card">
+                <span>M6</span>
+                <div><strong>Parallel &amp; Randomized</strong><small>Scalable computational techniques</small></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-panel">
+        <span class="eyebrow">SYSTEM ARCHITECTURE</span>
+        <h2>From Dataset to Interface</h2>
+
+        <div class="architecture-flow">
+            <div class="architecture-step">
+                <span>01</span>
+                <strong>Dataset Layer</strong>
+                <small>CSV files and DatasetManager</small>
+            </div>
+            <div class="architecture-connector">→</div>
+            <div class="architecture-step">
+                <span>02</span>
+                <strong>Model Layer</strong>
+                <small>MediaItem and interaction abstractions</small>
+            </div>
+            <div class="architecture-connector">→</div>
+            <div class="architecture-step">
+                <span>03</span>
+                <strong>Algorithm Layer</strong>
+                <small>M1–M6 Java implementations</small>
+            </div>
+            <div class="architecture-connector">→</div>
+            <div class="architecture-step">
+                <span>04</span>
+                <strong>API Layer</strong>
+                <small>Java HTTP server on port 8080</small>
+            </div>
+            <div class="architecture-connector">→</div>
+            <div class="architecture-step">
+                <span>05</span>
+                <strong>Frontend</strong>
+                <small>Dashboard, Explorer, Lab and Analytics</small>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-status">
+        <div>
+            <span class="eyebrow">PROJECT STATUS</span>
+            <h2>MediaMine platform is operational.</h2>
+            <p>
+                The dataset layer, six Java algorithm modules and frontend
+                interface are implemented. The Java API server exposes dataset
+                information to the web interface for connected views.
+            </p>
+        </div>
+
+        <div class="about-status-badge">
+            <span class="status-dot"></span>
+            <strong>PLATFORM READY</strong>
+        </div>
+    </section>
+
+    <footer class="about-footer">
+        <strong>MediaMine</strong>
+        <span>Intelligent Media Analytics Platform</span>
+        <span>Java · Algorithms · Data Analytics</span>
+    </footer>
+
+</main>
+
+<script>
+function logout() {
+    sessionStorage.removeItem("mediaMineLoggedIn");
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
